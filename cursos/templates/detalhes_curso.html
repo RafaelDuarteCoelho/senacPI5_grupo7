@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="curso-detalhes">
+    <h2>{{ curso.titulo }}</h2>
+    {% if curso.thumbnail %}
+        <img src="{{ curso.thumbnail.url }}" alt="{{ curso.titulo }}" style="width: 200px; height: auto;">
+    {% endif %}
+    <p>{{ curso.descricao }}</p>
+    <!-- Botão de Compra -->
+    {% if user.is_authenticated %}
+    <a href="{% url 'comprar_curso' curso.id %}">Comprar Curso</a>
+    <!-- Botões de Like e Dislike -->
+    <a href="{% url 'like_curso' curso.id %}">Like</a>
+    <a href="{% url 'dislike_curso' curso.id %}">Dislike</a>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Cursos de {{ nome_categoria }}</h2>
+
+<div class="row">
+    {% for curso in cursos %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="{{ curso.thumbnail.url }}" class="card-img-top" alt="{{ curso.titulo }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ curso.titulo }}</h5>
+                    <p class="card-text">{{ curso.descricao_breve }}</p>
+                    <a href="{% url 'detalhes_curso' curso.id %}" class="btn btn-primary">Ver detalhes</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>Nenhum curso encontrado na categoria.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

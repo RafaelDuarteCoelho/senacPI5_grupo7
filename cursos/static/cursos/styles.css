@@ -1,0 +1,172 @@
+.fixed-footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer {
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.main-content {
+    min-height: calc(100vh - 120px); /* Altura total da janela menos altura do header e footer */
+}
+
+.body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #fff !important;
+    letter-spacing: 1px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.lista-cursos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.card-curso {
+    flex: 0 1 calc(33.333% - 20px);
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(275deg, #e0f7fa 0%, #b4dde2a8 100%);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid #04aefd;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card-curso:hover {
+    transform: scale(1.03);
+}
+
+.card-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+
+.card-info i {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.card-likes {
+    padding: 0.5rem;
+}
+
+.like {
+    color: green;
+    margin-right: 0.25rem;
+}
+
+.dislike {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.card-curso img {
+    width: 100%; /* mantém a largura da imagem em 100% do contêiner pai */
+    height: 100%; /* define uma altura fixa para a imagem */
+    object-fit: fill; /* assegura que a imagem seja contida dentro do elemento, mantendo sua proporção */
+    border-bottom: 1px solid #ddd; /* opcional, adiciona uma borda separando a imagem do corpo do card */
+}
+
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    flex-grow: 1;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+.card-title {
+    font-weight: 500;
+}
+
+.card-text {
+    font-weight: 400;
+}
+
+
+.welcome-section, .community-section, .sharing-knowledge-section {
+    background: #96bde3; /* Um fundo claro */
+    border-radius: 4px; /* Cantos arredondados para as seções */
+    padding: 20px;
+    margin-bottom: 30px; /* Espaço entre seções */
+}
+
+.welcome-section {
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+}
+
+.community-section {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+.sharing-knowledge-section {
+    background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-5 {
+    margin-bottom: 3rem;
+}
+
+
+/* Adaptação para telas menores */
+@media (max-width: 768px) {
+    .card-curso {
+        flex: 0 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .card-curso {
+        flex: 0 1 100%;
+    }
+}

@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="lista-cursos">
+    {% for curso in cursos %}
+        <div class="card-curso">
+            <!-- Thumbnail -->
+            <img src="{{ curso.thumbnail.url }}" alt="{{ curso.titulo }}">
+            
+            <!-- Corpo do Card -->
+            <div class="card-body">
+                <h5 class="card-title">{{ curso.titulo }}</h5>
+                <p class="card-text">{{ curso.descricao_breve }}</p>
+            </div>
+            
+            <!-- Informações Adicionais -->
+            <div class="card-info">
+                <div class="card-likes">
+                    <i class="like fas fa-thumbs-up"></i>{{ curso.likes }}
+                    <i class="dislike fas fa-thumbs-down"></i>{{ curso.dislikes }}
+                </div>
+                <div>{{ curso.inscricoes }} inscritos</div>
+            </div>
+            <div class="card-info">
+                <div>Nível: {{ curso.get_nivel_display }}</div>
+                <div>{{ curso.duracao|time:"G" }} horas</div>
+            </div>
+            <div class="card-info">
+                <div>Criado por: {{ curso.criador.username }}</div>
+            </div>
+            
+            <!-- Ações do Card -->
+            <div class="card-actions">
+                <a href="{% url 'detalhes_curso' curso.id %}" class="btn btn-primary">Ver detalhes</a>
+            </div>
+        </div>
+    {% empty %}
+        <p>Nenhum curso encontrado.</p>
+    {% endfor %}
+</div>
+{% endblock %}

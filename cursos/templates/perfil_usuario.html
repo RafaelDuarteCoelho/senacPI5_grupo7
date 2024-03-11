@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+    <h2>Perfil de {{ user.username }}</h2>
+    <p>Email: {{ user.email }}</p>
+    <p>Créditos: {{ user.profile.creditos }}</p>
+
+    <h2>Cursos Criados</h2>
+    {% for curso in cursos_criados %}
+        <!-- Exibição dos cursos criados pelo usuário -->
+    {% empty %}
+        <p>Você ainda não criou nenhum curso.</p>
+    {% endfor %}
+
+    <h2>Cursos Comprados</h2>
+    {% for inscricao in inscricoes %}
+        <div>{{ inscricao.curso.titulo }}</div>
+    {% empty %}
+        <p>Você ainda não comprou nenhum curso.</p>
+    {% endfor %}
+</div>
+{% endblock %}
