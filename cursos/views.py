@@ -10,7 +10,6 @@ from .forms import UserRegisterForm
 #Index
 
 def index(request):
-    # Aqui você pode adicionar lógica para passar contexto, se necessário
     return render(request, 'index.html')
 
 #Usuário
@@ -20,8 +19,7 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Log in the user immediately after registering
-            # Redirecionar para a página inicial após o registro
+            login(request, user)
             return redirect('index')
     else:
         form = UserRegisterForm()
